@@ -8,7 +8,7 @@
   },
   "dependencies": {
     "@google-cloud/logging": "^11.0.0",
-    "@google-cloud/natural-language": "^6.0.0",
+    "@google-cloud/natural-language": "^5.0.0",
     "@google-cloud/storage": "^7.11.0",
     "@google-cloud/translate": "^8.3.0",
     "@google-cloud/vision": "^4.3.2",
