@@ -1,21 +1,17 @@
 FROM node:20-slim
 WORKDIR /app
 
-# Copy and install server deps
-COPY server/package.json server/package-lock.json* ./server/
-RUN cd server && npm install --production
-
-# Copy and install client deps, then build
-COPY client/package.json client/package-lock.json* ./client/
-RUN cd client && npm install
-
+# Build client
+COPY client/package.json ./client/
+RUN npm install --prefix client
 COPY client/ ./client/
-RUN cd client && npm run build
+RUN npm run build --prefix client
 
-# Copy server source
+# Setup server
+COPY server/package.json ./server/
+RUN npm install --prefix server --omit=dev
 COPY server/ ./server/
 
 EXPOSE 8080
 ENV PORT=8080
-
 CMD ["node", "server/index.js"]
