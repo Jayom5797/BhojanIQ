@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-surface text-on-surface font-body;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    background: rgba(35, 38, 46, 0.4);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, #2ff3ad 0%, #00e5a0 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .neon-glow-primary {
+    box-shadow: 0 0 20px rgba(47, 243, 173, 0.2);
+  }
+
+  .neon-glow-secondary {
+    box-shadow: 0 0 20px rgba(150, 145, 255, 0.2);
+  }
+
+  .neon-glow-error {
+    box-shadow: 0 0 20px rgba(255, 113, 108, 0.2);
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-br from-primary to-primary-container text-on-primary font-headline font-bold px-8 py-3 rounded-xl hover:brightness-110 active:scale-95 transition-all;
+  }
+
+  .btn-ghost {
+    @apply border border-outline/30 text-secondary font-headline font-bold px-8 py-3 rounded-xl hover:bg-secondary/5 transition-all;
+  }
+}
+
+@layer utilities {
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+}
